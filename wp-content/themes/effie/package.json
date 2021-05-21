@@ -1,0 +1,24 @@
+{
+  "name": "effie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css",
+    "serve": "browser-sync start --proxy 'floatleft.local' --files '*.php','css/*.css'",
+    "dev": "npm run scss & npm run serve"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.26.7",
+    "livereload": "^0.9.1",
+    "node-sass": "^4.14.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-minify": "^3.1.0"
+  }
+}

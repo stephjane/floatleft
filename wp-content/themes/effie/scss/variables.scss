@@ -1,0 +1,24 @@
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+// Tablets and small desktops
+$screen-lg-min: 992px;
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+//fonts
+$body: 'Noto Sans', sans-serif;
+$heading: 'Hind Madurai', sans-serif;
+$button: 'Noto Sans', sans-serif;
+
+//colors
+$primary: #00CCCC;
+$secondary: #040440;
+$flicast: #4E33CF;
+$error: #9B0000;
+
+$grey-dark: #232323;
+$grey-med: #545659;
+$grey-light: #DEE3E9;
+$offwhite: #f2f2f2;

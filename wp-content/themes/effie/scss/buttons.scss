@@ -1,0 +1,186 @@
+@import 'variables.scss';
+a,.btn {
+	letter-spacing: .8px;
+}
+a {
+	font-family: $body;
+	font-size: .8rem;
+	text-decoration: none;
+	@media (min-width: $screen-md-min) {
+		font-size: 1rem;
+		letter-spacing: .5px;
+	}
+	&.primary {
+		color: $primary;
+	}
+}
+.events {
+	a {
+		font-family: $body;
+		font-size: .8rem;
+		text-decoration: none;
+		color: $primary;
+		@media (min-width: $screen-md-min) {
+			font-size: 1rem;
+		}
+	}
+}
+.btn {
+	font-family: $button;
+	font-weight: 600;
+	font-size: .8rem;
+	display: inline-block;
+	text-align: center;
+	width: fit-content;
+	height: fit-content;
+	white-space: nowrap;
+	vertical-align: middle;
+	user-select: none;
+	overflow: visible;
+	box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.10);
+	padding: 10px 18px;
+	margin-bottom: 8px;
+	text-transform: uppercase;
+	border-radius: 100px;
+	@media (min-width: $screen-md-min) {
+		font-size: .9rem;
+		padding: 12px 22px;
+	}
+	@media (min-width: $screen-lg-min) {
+		letter-spacing: .8px;
+		padding: 14px 24px;
+		cursor: pointer;
+		transition: .2s ease;
+	}
+	&:hover {
+		box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+	}
+	&__primary {
+		color: white;
+		background-color: $primary;
+		border: 2px solid $primary;
+		overflow: hidden;
+		&:hover {
+			color: $primary;
+			background-color: transparent;
+		}
+	}
+	&__secondary {
+		background-color: transparent;
+		border: 2px solid $primary;
+		color: $primary;
+		&:hover {
+			background-color: $primary;
+			border: 2px solid $primary;
+			color: white;
+		}
+	}
+	&__flicast {
+		background-color: $flicast;
+		border: 2px solid $flicast;
+		color: white;
+		&:hover {
+			background-color: white;
+			border: 2px solid $flicast;
+			color: $flicast;
+		}
+	}
+	&__white {
+		background-color: transparent;
+		border: 2px solid $offwhite;
+		color: $offwhite;
+		&:hover {
+			background-color: $offwhite;
+			color: black;
+		}
+	}
+	&__black {
+		background-color: transparent;
+		border: 2px solid $grey-dark;
+		color: $grey-dark;
+		&:hover {
+			background-color: black;
+			color: $offwhite;
+		}
+	}
+	&__container {
+		padding: 30px;
+	}
+	&.disable {
+		background-color: #666666;
+	}
+}
+button {
+	border: 0;
+	cursor: pointer;
+}
+input[type='submit'] {
+	font-size: .9rem;
+	display: inline-block;
+	text-align: center;
+	width: fit-content;
+	height: fit-content;
+	white-space: nowrap;
+	vertical-align: middle;
+	user-select: none;
+	font-weight: 600;
+	overflow: visible;
+	box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.10);
+	padding: 15px 22px;
+	margin-bottom: 8px;
+	text-transform: uppercase;
+	border-radius: 100px;
+	position: relative;
+	color: white;
+	background-color: $primary;
+	overflow: hidden;
+}
+a {
+	&.link {
+		display: grid;
+		grid-template-columns: auto auto;
+		grid-column-gap: 10px;
+		transition: .2s ease;
+		svg {
+		align-self: center;
+		transition: .4s ease;
+		}
+		&__arrow-down {
+			svg {
+				height: .5rem;
+				stroke: black;
+				fill: none;
+			}
+			&:hover {
+				svg {
+					animation: bob .8s infinite;
+					animation-timing-function: ease-in-out;
+				}
+			}
+		}
+		&__arrow-right {
+			padding-right: 6px;
+			svg {
+				height: .7rem;
+			}
+			&:hover {
+				color: $primary;
+				svg {
+					stroke: $primary;
+					animation: shift .8s infinite;
+					animation-timing-function: ease-in-out;
+				}
+			}
+		}
+	}
+}
+@keyframes bob {
+	0%  { transform: translateY(0); }
+	50% { transform: translateY(2px); }
+	95% { transform: translateY(.5px); }
+}
+@keyframes shift {
+	0%  { transform: translateX(0); }
+	50% { transform: translateX(2px); }
+	95% { transform: translateX(.5px); }
+}

@@ -1,0 +1,1683 @@
+@import 'font.scss';
+@import 'buttons.scss';
+@import 'builder.scss';
+
+
+nav {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 100%;
+  background-color: white;
+  transition: .2s ease;
+  .container {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    padding: 10px;
+    overflow: visible;
+    @media (min-width: $screen-lg-min) {
+      grid-template-columns: 40% auto 40%;
+    }
+  }
+  .btn {
+    margin: 0;
+  }
+  .grid-item {
+    align-self: center;
+    &__two {
+      justify-self: start;
+      @media (min-width: $screen-lg-min) {
+        justify-self: center;
+      }
+    }
+    &__three {
+      justify-self: center;
+      @media (min-width: $screen-lg-min) {
+        justify-self: end;
+      }
+    }
+  }
+  svg {
+    width: 60px;
+  }
+  .nav-menu {
+    position: absolute;
+    top: 85px;
+    right: -110%;
+    width: 100%;
+    background: white;
+    margin: 0;
+    padding: 10px;
+    transition: .2s ease;
+    &.open {
+      right: -30%;
+      @media (min-width: $screen-md-min) {
+        right: -60%;
+      }
+    }
+    @media (min-width: $screen-lg-min) {
+      display: flex;
+      position: relative;
+      left: 0;
+      padding: 0;
+      top: 0;
+    }
+  }
+  li {
+    position: relative;
+    align-self: start;
+    cursor: pointer;
+    text-align: left;
+    padding: 7px 10px;
+    @media (min-width: $screen-lg-min) {
+      padding: 0;
+      margin-right: 40px;
+    }
+  }
+  a,li {
+    color: $grey-dark;
+    font-family: $heading;
+    font-size: 1rem;
+    font-weight: 600;
+    @media (min-width: $screen-lg-min) {
+      font-size: 1.1rem;
+      transition: .2s ease;
+    }
+  }
+  a {
+    &:hover {
+      color: $primary;
+    }
+  }
+  .has-drop-down {
+    .sub-nav {
+      position: relative;
+      svg {
+        position: absolute;
+        top: 5px;
+        left: -20px;
+        opacity: 0;
+        width: 0;
+        transform: rotate(0deg);
+        transition: .2s ease;
+        @media (min-width: $screen-lg-min) {
+          opacity: 1;
+          width: 10px;
+        }
+      }
+      svg,span {
+        align-self: center;
+      }
+    }
+    .dropdown {
+      position: relative;
+      background: $offwhite;
+      padding: 10px 0;
+      transition: .2s ease;
+      @media (min-width: $screen-lg-min) {
+        position: absolute;
+        display: block;
+        top: 10px;
+        opacity: 0;
+        left: 0;
+        z-index: -2;
+        font-size: 1.1rem;
+        padding: 0;
+        grid-template-columns: repeat(2, 80px);
+        transition: .2s ease;
+      }
+      li {
+        display: block;
+        padding: 5px 10px;
+        margin: 5px 0;
+        background: $offwhite;
+        a {
+          color: $grey-dark;
+          border-bottom: 2px solid $offwhite;
+          transition: .2s ease;
+        }
+        @media (min-width: $screen-lg-min) {
+          margin: 15px 0;
+          padding: 10px 40px 10px 20px;
+          &:hover {
+            a {
+              border-bottom: 2px solid $primary;
+            }
+          }
+        }
+      }
+    }
+    &:hover {
+      @media (min-width: $screen-lg-min) {
+        svg {
+          transform: rotate(90deg);
+        }
+        .dropdown {
+          top: 25px;
+          opacity: 1;
+          z-index: 2;
+        }
+      }
+    }
+  }
+  .mobile-nav {
+    width: 30px;
+    height: 30px;
+    align-self: center;
+    justify-self: end;
+    @media (min-width: $screen-lg-min) {
+      display: none;
+    }
+    div {
+      width: 100%;
+      height: 2px;
+      background: $primary;
+      margin: 6px 0;
+      transition: .2s ease;
+    }
+    &.open {
+      div {
+        margin: 8px 0;
+      }
+    }
+  }
+}
+.hero {
+  position: relative;
+  display: grid;
+  height: 95vh;
+  margin-bottom: 50px;
+  background-color: $grey-dark;
+  @media (min-width: $screen-md-min) {
+    grid-template-rows: 60% 40%;
+    height: 70vh;
+    min-height: 600px;
+    margin-bottom: 100px;
+  }
+  @media (min-width: $screen-lg-min) {
+    grid-template-rows: 55% 45%;
+    min-height: 800px;
+    margin-bottom: 150px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 400;
+    color: $offwhite;
+    justify-self: center;
+    padding: 50px 0 30px;
+    @media (min-width: $screen-md-min) {
+      font-size: 40px;
+    }
+    @media (min-width: $screen-lg-min) {
+      font-size: 56px;
+    }
+    span {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      @media (min-width: $screen-md-min) {
+        font-size: 60px;
+      }
+      @media (min-width: $screen-lg-min) {
+        font-size: 80px;
+      }
+      @media (min-width: $screen-xl-min) {
+        font-size: 95px;
+      }
+    }
+  }
+  .logo-img {
+    max-width: 70%;
+    max-height: 60px;
+    margin-bottom: 40px;
+    @media (min-width: $screen-md-min) {
+      max-width: 400px;
+      max-height: 100px;
+    }
+    @media (min-width: $screen-lg-min) {
+      max-width: 500px;
+      margin-bottom: 50px;
+    }
+  }
+  &__content {
+    text-align: center;
+    justify-self: center;
+    align-self: end;
+    width: 98%;
+    @media (min-width: $screen-md-min) {
+      width: 90%;
+    }
+  }
+  &__image {
+    display: grid;
+    img {
+      align-self: center;
+      max-width: 80%;
+      margin: 0 auto;
+      @media (min-width: $screen-md-min) {
+        align-self: end;
+        max-height: 400px;
+        max-width: 50%;
+        transform: translateY(30px);
+      }
+      @media (min-width: $screen-lg-min) {
+        max-width: 70%;
+        transform: translateY(40px);
+      }
+    }
+  }
+  &__two {
+    overflow: hidden;
+    margin-bottom: 0;
+    img {
+      align-self: center;
+      transform: translateY(0);
+      max-width: 90%;
+    }
+  }
+  &__news {
+    img {
+      max-width: 100%;
+      align-self: end;
+    }
+  }
+  &__article {
+    display: relative;
+    grid-template-rows: 100%;
+    background: white;
+    height: 250px;
+    min-height: 0;
+    margin: 100px 0 50px;
+    @media (min-width: $screen-md-min) {
+      height: 350px;
+    }
+    @media (min-width: $screen-lg-min) {
+      height: 450px;
+    }
+    @media (min-width: $screen-xl-min) {
+      height: 550px;
+    }
+  }
+  &__page {
+    height: 50vh;
+    min-height: 400px;
+    background: white;
+    margin-bottom: 50px;
+    grid-template-rows: 80% 20%;
+    h1 {
+      color: $grey-dark;
+    }
+  }
+}
+
+.m-scene {
+  /** Basic styles for an animated element */
+  .scene_element {
+    animation-duration: 0.9s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: both;
+  }
+  .scene_element--fadeinuphero {
+    @media (min-width: $screen-md-min) {
+      animation-name: fadeInUpHero;
+    }
+  }
+  .scene_element--fadeinright {
+    @media (min-width: $screen-md-min) {
+      animation-name: fadeInRight;
+    }
+  }
+  .scene_element--fadeinup {
+    @media (min-width: $screen-md-min) {
+      animation-name: fadeInUp;
+    }
+  }
+  &.is-exiting {
+    .scene_element {
+      animation-direction: alternate-reverse;
+    }
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeInUpHero {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 30%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+//body
+html {
+  margin-top: 0 !important;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+body {
+  background: white;
+  font-family: $body;
+  margin: 0;
+  overflow-x: hidden;
+}
+.container {
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  @media (min-width: $screen-md-min) {
+    max-width: 668px;
+  }
+  @media (min-width: $screen-lg-min) {
+    max-width: 900px;
+  }
+  @media (min-width: $screen-xl-min) {
+    max-width: 1100px;
+  }
+  &.hug-right {
+    margin: 0 0 0 auto;
+    @media (min-width: $screen-md-min) {
+      max-width: 800px;
+    }
+    @media (min-width: $screen-lg-min) {
+      max-width: 1100px;
+    }
+    @media (min-width: $screen-xl-min) {
+      max-width: 1500px;
+    }
+  }
+  &.hug-left {
+    margin: 0 auto 0 0;
+    @media (min-width: $screen-md-min) {
+      max-width: 800px;
+    }
+    @media (min-width: $screen-lg-min) {
+      max-width: 1100px;
+    }
+    @media (min-width: $screen-xl-min) {
+      max-width: 1500px;
+    }
+  }
+}
+
+//utilities
+.sm-scn {
+  @media (min-width: $screen-md-min) {
+    display: none;
+  }
+}
+.med-scn {
+  display: none;
+  @media (min-width: $screen-md-min) {
+    display: initial;
+  }
+}
+.text-center {
+  text-align: center;
+}
+.bg {
+  &__black {
+    background-color: black;
+  }
+  &__grey-light {
+    background-color: $grey-light;
+  }
+  &__grey-dark {
+    background-color: $grey-dark;
+  }
+  &__white {
+    background-color: white;
+    color: $grey-dark;
+  }
+  &__offwhite {
+    background-color: #f2f2f2;
+    color: $grey-dark;
+  }
+  &__img {
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__overlay {
+    background-color: fade-out($grey-dark, .3);
+  }
+  &__gradient-light {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 70%);
+  }
+}
+.font {
+  &__white {
+    color: $offwhite;
+  }
+  &__black {
+    color: black;
+  }
+  &__grey-dark {
+    color: $grey-dark;
+  }
+  &__secondary {
+    color: $secondary;
+  }
+}
+.abs-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.relative {
+  position: relative;
+}
+.d-grid {
+  display: grid;
+}
+.align {
+  &__end {
+    align-self: end;
+  }
+}
+.padding {
+  &__sm {
+    padding: 30px 0;
+  }
+  &__med {
+    padding: 60px 0;
+  }
+  &__lg {
+    padding: 90px 0;
+  }
+}
+.margin {
+  &__small {
+    margin: 20px 0;
+  }
+  &__med {
+    margin: 50px 0;
+  }
+  &__lg {
+    margin: 60px 0;
+    @media (min-width: $screen-md-min) {
+      margin: 100px 0;
+    }
+  }
+}
+p {
+  a {
+    color: $primary;
+    border-bottom: 1px solid transparent;
+    transition: .2s ease;
+    &:hover {
+      border-bottom: 1px solid $primary;
+    }
+  }
+}
+
+//form elements
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #A6A6A6;
+  font-family: $body;
+}
+form {
+  margin: 40px auto;
+  @media (min-width: $screen-lg-min) {
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+  @media (min-width: $screen-xl-min) {
+    width: 90%;
+    margin: 50px auto;
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px 0;
+    span {
+      width: 100%;
+      text-align: center;
+    }
+    @media (min-width: $screen-lg-min) {
+      flex-direction: row;
+    }
+  }
+  label {
+    font-family: $body;
+  }
+  .submit {
+    text-align: center;
+  }
+}
+input,textarea,select {
+  width: 85%;
+  font-family: $body;
+  padding: 15px 10px;
+  font-size: 14px;
+  background-color: $offwhite;
+  border: 0;
+  border-radius: 3px;
+  box-shadow: 0px 2px 2px rgba(0,0,0, .20);
+  transition: .2s ease;
+  @media (min-width: $screen-md-min) {
+    font-size: 18px;
+    padding: 20px;
+  }
+  @media (min-width: $screen-lg-min) {
+    margin-bottom: 40px;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0px 2px 4px rgba(0,0,0, .25);
+  }
+  &[type='submit'] {
+    font-family: $body;
+    font-weight: 600;
+	  font-size: .8rem;
+    letter-spacing: 1px;
+    width: auto;
+    padding: 15px 25px;
+    flex: .3;
+    cursor: pointer;
+    margin: 10px auto;
+    border: 2px solid $primary;
+    &:hover {
+			color: $primary;
+			background-color: transparent;
+		}
+  }
+}
+
+div.wpcf7-mail-sent-ok {
+  font-family: $body;
+  padding: 20px 0;
+  border: 0;
+  color: $primary;
+}
+div.wpcf7-validation-errors {
+  font-family: $body;
+  padding: 20px 0;
+  border: 0;
+  color: $error;
+}
+span.wpcf7-not-valid-tip {
+  color: $error;
+  padding-top: 10px;
+}
+
+//components
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+svg {
+  &.nav-logo {
+    height: 40px;
+    .letter {
+      display: none;
+    }
+  }
+}
+.articles {
+  width: 80%;
+  margin: 0 auto;
+  @media (min-width: $screen-md-min) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 47% 47%;
+    grid-column-gap: 6%;
+  }
+  @media (min-width: $screen-lg-min) {
+    grid-template-columns: 30.6% 30.6% 30.6%;
+    grid-column-gap: 4%;
+  }
+  .article {
+    position: relative;
+    display: grid;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.20);
+    @media (min-width: $screen-md-min) {
+      margin-bottom: 40px;
+    }
+    @media (min-width: $screen-lg-min) {
+      margin-bottom: 50px;
+    }
+    &__image {
+      position: relative;
+      height: 180px;
+      @media (min-width: $screen-md-min) {
+        height: 220px;
+      }
+      @media (min-width: $screen-xl-min) {
+        height: 260px;
+      }
+    }
+    .bg__img {
+      border-radius: 3px 3px 0 0;
+    }
+    &__title {
+      padding: 20px 15px 0;
+    }
+    &__body {
+      position: relative;
+      height: 70px;
+      overflow: hidden;
+      padding: 10px 15px;
+      @media (min-width: $screen-md-min) {
+        height: 80px;
+      }
+      p {
+        overflow: hidden;
+        margin: 0;
+      }
+    }
+    &__footer {
+      background: transparent;
+      z-index: 2;
+      padding: 10px 15px 15px;
+      display: grid;
+      a {
+        justify-self: end;
+      }
+    }
+    .link {
+      color: $primary;
+    }
+  }
+  .bg__gradient-light {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f7f7f7 100%);
+  }
+}
+.content-section {
+  position: relative;
+  padding: 30px 0;
+  @media (min-width: $screen-md-min) {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-column-gap: 2%;
+    padding: 50px 0;
+  }
+  @media (min-width: $screen-lg-min) {
+    padding: 100px 0;
+  }
+  .hug-right & {
+    @media (min-width: $screen-md-min) {
+      grid-template-columns: 43% 55%;
+    }
+  }
+  .hug-left & {
+    @media (min-width: $screen-md-min) {
+      grid-template-columns: 43% 55%;
+    }
+  }
+  &__header {
+    padding: 0 10px;
+    @media (min-width: $screen-md-min) {
+      padding: 0 30px;
+    }
+    .hug-right & {
+      @media (min-width: $screen-md-min) {
+        padding: 0 60px 0 30px;
+      }
+      @media (min-width: $screen-lg-min) {
+        padding: 0 250px 0 30px;
+      }
+    }
+  }
+  .content {
+    padding: 0 20px;
+    @media (min-width: $screen-md-min) {
+      display: grid;
+      padding: 0 30px;
+      grid-column: 2;
+    }
+    @media (min-width: $screen-lg-min) {
+      padding: 0 30px;
+    }
+    div {
+      padding-top: 5%;
+    }
+    h2,h5 {
+      margin-bottom: 30px;
+      .bg__grey-dark & {
+        color: white;
+      }
+    }
+  }
+  .image {
+    display: grid;
+    margin: 30px 0;
+    @media (min-width: $screen-md-min) {
+      display: grid;
+      min-height: 300px;
+      margin-top: 0;
+      grid-column: 1;
+    }
+  }
+  img {
+    z-index: 0;
+    max-width: 80%;
+    max-height: 100%;
+    justify-self: center;
+    .hug-right & {
+      justify-self: right;
+    }
+    .hug-left & {
+      justify-self: start;
+    }
+    @media (min-width: $screen-md-min) {
+      max-width: 95%;
+      align-self: center;
+    }
+  }
+  &__image-right {
+    @media (min-width: $screen-md-min) {
+      display: grid;
+      grid-column-gap: 2%;
+      grid-template-columns: 49% 49%;
+    }
+    .hug-right & {
+      @media (min-width: $screen-md-min) {
+        grid-template-columns: 55% 44%;
+      }
+    }
+    .hug-left & {
+      @media (min-width: $screen-md-min) {
+        grid-template-columns: 55% 44%;
+      }
+    }
+    .image {
+      @media (min-width: $screen-md-min) {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+    .content {
+      @media (min-width: $screen-md-min) {
+        grid-column: 1;
+        grid-row: 1;
+      }
+    }
+  }
+}
+
+//sections
+.cards {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  justify-content: space-between;
+  @media (min-width: $screen-md-min) {
+    grid-template-columns: repeat(3, 30%);
+  }
+  .card {
+    padding: 40px 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    @media (min-width: $screen-md-min) {
+      padding: 20px 10px;
+      background-color: $offwhite;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    @media (min-width: $screen-lg-min) {
+      padding: 40px 30px;
+      background-color: $offwhite;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    img {
+      height: 60px;
+      margin-bottom: 20px;
+    }
+  }
+}
+// .contact-section {
+//   form {
+//     @media (min-width: $screen-lg-min) {
+//       width: 80%;
+//       margin: 40px auto 20px;
+//     }
+//   }
+// }
+.contactSuccess {
+  text-align: center;
+}
+.flicast {
+  padding: 20px 0 40px;
+  @media (min-width: $screen-lg-min) {
+    padding: 80px 0;
+  }
+  .content-section {
+    padding: 40px 0;
+    @media (min-width: $screen-lg-min) {
+      grid-template-columns: 50% 50%;
+    }
+    .content {
+      padding: 0;
+      @media (min-width: $screen-md-min) {
+        padding: 0 80px 0 0;
+      }
+    }
+    .image {
+      text-align: center;
+      @media (min-width: $screen-md-min) {
+        display: grid;
+      }
+    }
+    img {
+      @media (min-width: $screen-md-min) {
+        align-self: center;
+      }
+    }
+    svg {
+      width: 200px;
+      @media (min-width: $screen-md-min) {
+        align-self: end;
+        width: 250px;
+      }
+      @media (min-width: $screen-lg-min) {
+        width: 300px;
+      }
+    }
+  }
+  h3 {
+    align-self: center;
+    margin-bottom: 0;
+    padding: 30px 0;
+  }
+}
+.amp {
+  background-color: $grey-dark;
+  padding: 20px 0;
+  @media (min-width: $screen-md-min) {
+    padding: 40px 0 60px;
+  }
+  @media (min-width: $screen-md-min) {
+    padding: 40px 0 80px;
+  }
+  &__header {
+    text-align: center;
+    padding: 20px 0;
+    @media (min-width: $screen-lg-min) {
+      padding: 50px 0;
+    }
+    h2 {
+      color: $offwhite;
+      padding-bottom: 10px;
+      @media (min-width: $screen-md-min) {
+        padding-bottom: 20px;
+      }
+      @media (min-width: $screen-lg-min) {
+        padding-bottom: 40px;
+      }
+    }
+  }
+  .container {
+    overflow: visible;
+  }
+  &__content {
+    display: grid;
+    overflow: visible;
+    @media (min-width: $screen-md-min) {
+      display: grid;
+      grid-template-columns: 55% 40%;
+      grid-column-gap: 5%;
+    }
+    div {
+      display: grid;
+    }
+    div:first-child {
+      grid-row: 2;
+      padding: 20px 45px 0 0;
+      @media (min-width: $screen-md-min) {
+        grid-column: 1;
+        grid-row: auto;
+        align-self: center;
+      }
+      @media (min-width: $screen-lg-min) {
+        padding: 20px 20px 0 0;
+      }
+    }
+    div:nth-child(2) {
+      text-align: right;
+    }
+  }
+  li {
+    font-family: $heading;
+    color: $offwhite;
+    display: grid;
+    grid-template-columns: 20px auto;
+    padding-bottom: 20px;
+    font-size: 1rem; //16px
+    line-height: 1.4rem;
+    @media (min-width: $screen-md-min) {
+      grid-template-columns: 30px auto;
+      font-size: 1.125rem; //18px
+      line-height: 1.8rem;
+      padding-bottom: 30px;
+    }
+    @media (min-width: $screen-lg-min) {
+      grid-template-columns: 40px auto;
+      font-size: 1.75rem; //28px
+      line-height: 2.3rem;
+      padding-bottom: 60px;
+    }
+    svg {
+      height: 10px;
+      align-self: center;
+      @media (min-width: $screen-md-min) {
+        height: 15px;
+      }
+      @media (min-width: $screen-lg-min) {
+        height: 20px;
+      }
+    }
+  }
+  img {
+    height: 200px;
+    justify-self: end;
+    @media (min-width: $screen-md-min) {
+      align-self: center;
+      opacity: 1;
+      animation: hover 2s infinite;
+      animation-timing-function: ease-in-out;
+    }
+    @media (min-width: $screen-lg-min) {
+      height: 500px;
+    }
+    &[aos="fade-left"] {
+      opacity: 0;
+      transition-property: opacity;
+    }
+    &[aos="fade-left"].aos-animate {
+      opacity: 1;
+    }
+  }
+}
+@keyframes hover {
+  0%   { transform: translate(0,0); }
+  50% { transform: translate(0, 5px); }
+  95% { transform: translate(0,.5px); }
+  100% { transform: translate(0,0); }
+}
+.projects {
+  padding: 60px 0 30px;
+  @media (min-width: $screen-md-min) {
+    padding: 100px 0 30px;
+  }
+  .container {
+    @media (min-width: $screen-md-min) {
+      width: 95%;
+    }
+  }
+  &__header {
+    text-align: center;
+    @media (min-width: $screen-md-min) {
+      padding: 0 60px;
+    }
+    @media (min-width: $screen-lg-min) {
+      padding: 20px 30px;
+    }
+  }
+  .logos {
+    margin: 40px 0;
+    @media (min-width: $screen-md-min) {
+      margin: 60px 0;
+    }
+    div {
+      flex: 1;
+      align-self: center;
+    }
+    .slick-list {
+      width: 60%;
+      margin: 0 auto;
+      overflow: visible;
+    }
+    .slick-slide {
+      position: relative;
+      margin: 0 10px;
+      opacity: .6;
+      cursor: pointer;
+      height: 50px;
+      border-radius: 6px;
+      background: transparent;
+      box-shadow: 0;
+      transition: .3s ease;
+      @media (min-width: $screen-md-min) {
+        height: 100px;
+      }
+      @media (min-width: $screen-lg-min) {
+        height: 150px;
+      }
+      img {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        max-width: 70%;
+        max-height: 60px;
+        transform: translateY(-50%);
+        transition: .3s ease;
+      }
+      &[data-slick-index="0"],
+      &[data-slick-index="4"] {
+        opacity: .3;
+      }
+      &.slick-current {
+        opacity: 1;
+        box-shadow: 0px 2px 20px rgba(0,0,0, 0.20);
+        img {
+          max-width: 50%;
+          max-height: 40px;
+          margin: 0 auto;
+          @media (min-width: $screen-md-min) {
+            max-width: 80%;
+            max-height: 80px;
+          }
+        }
+      }
+    }
+  }
+  .projects-row {
+    img {
+      max-width: 60%;
+      max-height: 250px;
+      margin: 0 auto;
+      @media (min-width: $screen-lg-min) {
+        max-width: 70%;
+        max-height: 400px;
+      }
+    }
+    .slick-list {
+      overflow: hidden;
+    }
+  }
+  .slick-track {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+  }
+  .slick-slide {
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.device-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  img {
+    max-width: 50px;
+    max-height: 30px;
+    align-self: center;
+    justify-self: start;
+    margin: 20px 0;
+    @media (min-width: $screen-lg-min) {
+      margin: 10px 0;
+      width: 60px;
+      max-width: 60px;
+      max-height: 100px;
+    }
+  }
+}
+
+.quote {
+  position: relative;
+  border-bottom: 10px solid $primary;
+  @media (min-width: $screen-lg-min) {
+    margin: 50px 0 0;
+  }
+  img.mark {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    left: 30px;
+    width: 50px;
+    transform: translateY(-50%);
+    @media (min-width: $screen-md-min) {
+      left: 50px;
+    }
+    @media (min-width: $screen-lg-min) {
+      left: 80px;
+      width: 80px;
+    }
+  }
+  &__content {
+    position: relative;
+    padding: 50px 10px;
+    background: #232323;
+    @media (min-width: $screen-md-min) {
+      padding: 80px 20px;
+    }
+    @media (min-width: $screen-lg-min) {
+      display: flex;
+      padding: 120px 20px;
+      justify-content: space-between;
+    }
+    h4 {
+      @media (min-width: $screen-lg-min) {
+        line-height: 30px;
+      }
+    }
+    h5 {
+      color: #888888;
+    }
+    div {
+      display: grid;
+      flex: 1;
+      &:first-child {
+        @media (min-width: $screen-lg-min) {
+          padding-right: 20px;
+          flex: 1;
+        }
+      }
+    }
+    img {
+      width: 80%;
+      max-height: 100%;
+      justify-self: center;
+      margin-top: 30px;
+      @media (min-width: $screen-lg-min) {
+        justify-self: end;
+        align-self: center;
+        width: 80%;
+        max-height: 300px;
+        margin-top: 0;
+      }
+      @media (min-width: $screen-lg-min) {
+        max-height: 600px;
+        width: 90%;
+        min-height: 200px;
+      }
+    }
+  }
+  .container {
+    overflow: visible;
+  }
+}
+
+.page {
+  &__intro {
+    padding: 50px 0;
+    @media (min-width: $screen-md-min) {
+      padding: 100px 0;
+    }
+  }
+}
+.icons-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 30px;
+  @media (min-width: $screen-md-min) {
+    padding-bottom: 60px;
+    max-width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+  @media (min-width: $screen-lg-min) {
+    max-width: 100%;
+  }
+  &--type {
+    text-align: center;
+    margin: 20px 0;
+    width: 40%;
+    @media (min-width: $screen-md-min) {
+      margin: 40px 0;
+      padding: 0 20px;
+      flex: 1;
+    }
+    @media (min-width: $screen-lg-min) {
+      padding: 0;
+    }
+    h5 {
+      padding-top: 15px;
+    }
+  }
+}
+.icon {
+  display: grid;
+  z-index: 1;
+  align-self: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 100%;
+  @media (min-width: $screen-lg-min) {
+    width: 100px;
+    height: 100px;
+  }
+  &__bg-primary {
+    background-color: $primary;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    img {
+      max-width: 50%;
+      max-height: 50%;
+      align-self: center;
+      justify-self: center;
+    }
+  }
+}
+.partners {
+  &__grid {
+    box-shadow: inset 0px -2px 25px rgba(0,0,0, .05);
+  }
+  &__intro {
+    .content {
+      @media (min-width: $screen-lg-min) {
+        width: 80%;
+        margin: 0 auto;
+      }
+      @media (min-width: $screen-xl-min) {
+        width: 70%;
+      }
+    }
+  }
+}
+.partners-section {
+  padding: 60px 0;
+  @media (min-width: $screen-md-min) {
+    padding: 100px 0;
+  }
+  @media (min-width: $screen-lg-min) {
+    padding: 150px 0 100px;
+  }
+  .container {
+    @media (min-width: $screen-md-min) {
+      display: grid;
+      grid-template-columns: 50% 45%;
+      grid-column-gap: 5%;
+    }
+    div:first-child {
+      @media (min-width: $screen-md-min) {
+        display: grid;
+      }
+    }
+    div:last-child {
+      display: grid;
+      justify-self: end;
+      grid-template-columns: 45% 45%;
+      grid-column-gap: 10%;
+      padding-top: 30px;
+      @media (min-width: $screen-md-min) {
+        align-self: start;
+      }
+      @media (min-width: $screen-lg-min) {
+        justify-self: center;
+        padding-top: 0;
+      }
+    }
+  }
+  img {
+    width: 100%;
+    max-width: 120px;
+    margin-bottom: 20px;
+    align-self: center;
+    justify-self: center;
+    @media (min-width: $screen-md-min) {
+      margin-bottom: 40px;
+    }
+    @media (min-width: $screen-lg-min) {
+      max-width: 160px;
+      margin-bottom: 40px;
+    }
+  }
+  .btn {
+    margin-top: 30px;
+  }
+}
+.partner-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  justify-content: space-between;
+  @media (min-width: $screen-md-min) {
+    grid-template-columns: repeat(4, 130px);
+  }
+  @media (min-width: $screen-lg-min) {
+    grid-template-columns: repeat(4, 180px);
+  }
+  a {
+    display: grid;
+    height: 60px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0,0,0, 0.15);
+    transition: .2s ease;
+    @media (min-width: $screen-md-min) {
+      height: 120px;
+      margin-bottom: 40px;
+    }
+    @media (min-width: $screen-lg-min) {
+      height: 140px;
+      margin-bottom: 60px;
+    }
+    img {
+      max-width: 80%;
+      align-self: center;
+      justify-self: center;
+    }
+    &:hover {
+      box-shadow: 0px 4px 15px rgba(0,0,0, 0.25);
+    }
+  }
+}
+
+.news {
+  &__header {
+    display: grid;
+    padding: 20px 0;
+    text-align: center;
+    @media (min-width: $screen-md-min) {
+      grid-template-columns: 60% 40%;
+      text-align: left;
+      padding: 40px 0;
+    }
+    @media (min-width: $screen-lg-min) {
+      padding: 60px 0;
+    }
+  }
+  h3 {
+    justify-self: center;
+    padding-bottom: 10px;
+    @media (min-width: $screen-md-min) {
+      justify-self: start;
+      margin: 0;
+    }
+  }
+  .btn {
+    justify-self: center;
+    @media (min-width: $screen-md-min) {
+      align-self: end;
+      justify-self: end;
+    }
+  }
+  .link {
+    width: fit-content;
+    justify-self: center;
+    align-self: center;
+    color: $primary;
+    @media (min-width: $screen-md-min) {
+      justify-self: end;
+    }
+    svg {
+      stroke: $primary;
+    }
+  }
+}
+.timeline {
+  position: relative;
+  overflow: visible;
+  @media (min-width: $screen-lg-min) {
+    margin: 40px 0;
+  }
+  h2 {
+    @media (min-width: $screen-md-min) {
+      padding: 30px 0;
+    }
+  }
+  h3 {
+    font-weight: 600;
+    overflow: visible;
+  }
+  &__container {
+    overflow: hidden;
+  }
+  &__section {
+    display: grid;
+    grid-template-columns: 0 30% 70%;
+    overflow: visible;
+    @media (min-width: $screen-md-min) {
+      grid-template-columns: 40% 20% 40%;
+    }
+    &:first-child {
+      .line {
+        height: 50%;
+        bottom: 0;
+      }
+    }
+    &:last-child {
+      .line {
+        height: 50%;
+      }
+    }
+    &:nth-child(odd) {
+      @media (min-width: $screen-md-min) {
+        .timeline__card {
+          grid-column: 1;
+        }
+        .timeline__point {
+          grid-column: 2;
+          grid-row: 2;
+        }
+      }
+    }
+  }
+  &__point {
+    display: grid;
+    position: relative;
+    padding: 30px 10px;
+    overflow: visible;
+    .line {
+      position: absolute;
+      left: 50%;
+      z-index: 0;
+      width: 1px;
+      height: 100%;
+      background-color: fade-out($primary, .8);
+      overflow: visible;
+    }
+  }
+  &__card {
+    padding: 30px 10px;
+     &--card {
+      background-color: #fafafa;
+      color: $grey-dark;
+      padding: 20px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: visible;
+      @media (min-width: $screen-md-min) {
+        padding: 20px 40px;
+      }
+     }
+  }
+  &__filler {
+    overflow: visible;
+  }
+}
+.cta {
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+  @media (min-width: $screen-lg-min) {
+    padding: 250px 60px 200px;
+  }
+  .abs-fill {
+    z-index: -1;
+  }
+  h3 {
+    margin-bottom: 50px;
+  }
+}
+
+footer {
+  color: black;
+  .content {
+    padding: 40px 30px;
+    background-color: #f2f2f2;
+    @media (min-width: $screen-lg-min) {
+      padding: 80px 30px;
+    }
+    .container {
+      @media (min-width: $screen-md-min) {
+        display: grid;
+        grid-template-columns: 33% 22% 25%;
+        grid-column-gap: 10%;
+      }
+    }
+  }
+  a {
+    color: $grey-dark;
+    padding-bottom: 12px;
+    span {
+      border-bottom: 1px solid transparent;
+      transition: .2s ease;
+    }
+    &:hover {
+      span {
+        border-bottom: 1px solid $primary;
+      }
+    }
+  }
+  .form {
+    @media (min-width: $screen-md-min) {
+      padding: 0 10px;
+    }
+    svg {
+      width: 50%;
+      padding-bottom: 20px;
+      @media (min-width: $screen-md-min) {
+        width: 60%;
+      }
+    }
+  }
+  form {
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    @media (min-width: $screen-md-min) {
+      padding: 0;
+    }
+  }
+  input {
+    width: 90%;
+    margin: 10px 0;
+    background-color: white;
+    padding: 12px 18px;
+    font-size: .9rem;
+    &[type='submit'] {
+      margin-top: 15px;
+      font-size: .8rem;
+      padding: 15px 25px;
+    }
+  }
+  .events,
+  .links {
+    margin: 20px 0;
+  }
+  .links {
+    a {
+      display: block;
+      span {
+        border-bottom: 2px solid transparent;
+        transition: .2s ease;
+      }
+      &:hover {
+        span {
+          border-bottom: 2px solid $primary;
+        }
+      }
+    }
+  }
+  .link__arrow-right {
+    color: $primary;
+    justify-self: start;
+    svg {
+      stroke: $primary;
+    }
+  }
+  .social {
+    margin: 20px 0;
+    svg {
+      height: 20px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      @media (min-width: $screen-lg-min) {
+        height: 20px;
+        margin-right: 10px;
+      }
+    }
+  }
+  .copyright {
+    padding: 10px;
+    @media (min-width: $screen-lg-min) {
+      padding: 10px 0;
+    }
+  }
+}
+.blog-post {
+  padding-bottom: 60px;
+  .post-header {
+    padding-bottom: 20px;
+  }
+  .tags {
+    font-size: 1rem;
+    color: $grey-med;
+    span {
+        margin-right: 10px;
+    }
+  }
+  h1 {
+    @media (min-width: $screen-md-min) {
+        line-height: 2.8rem;
+    }
+    @media (min-width: $screen-lg-min) {
+        line-height: 4rem;
+    }
+  }
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    a {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+    }
+  }
+  hr.wp-block-separator {
+    border: .5px solid $grey-light;
+    width: 50%;
+    margin: 50px auto;
+  }
+  figcaption {
+    text-align: center;
+  }
+}
